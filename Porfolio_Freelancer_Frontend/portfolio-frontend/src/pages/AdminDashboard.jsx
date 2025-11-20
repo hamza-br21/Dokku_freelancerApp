@@ -4,8 +4,6 @@ import { useAuth } from '../contexts/AuthContext';
 
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
-//import BackButton from '../components/BackButton';
 /*
 You use navigate() to redirect after un clic ou une action admin (edit, delete, etc.).
 You use <Link> for liens dans le tableau ou la barre de navigation (ex: “Voir les messages”).
@@ -64,7 +62,6 @@ const AdminDashboard = () => {
     return (
         <div className="admin-dashboard">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-            {/*<BackButton />*/} 
             <h2>Tableau de Bord Admin 🔑</h2>
             <button onClick={logout} className="btn-secondary">Déconnexion</button>
          </div>   
