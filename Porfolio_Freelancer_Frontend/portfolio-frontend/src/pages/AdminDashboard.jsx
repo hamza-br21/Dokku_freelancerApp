@@ -4,10 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-/*
-You use navigate() to redirect after un clic ou une action admin (edit, delete, etc.).
-You use <Link> for liens dans le tableau ou la barre de navigation (ex: “Voir les messages”).
-*/ 
+
 
 const AdminDashboard = () => {
     const navigate = useNavigate();
@@ -45,16 +42,15 @@ const AdminDashboard = () => {
         if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce projet ?")) return;
 
         try {
-            await securedApi.delete(`/projets/${id}`); // DELETE /api/projets/{id}
+            await securedApi.delete(`/projets/${id}`); 
             alert("Projet supprimé avec succès !");
-            //fetchData(); // Rafraîchir la liste
-            // Mettre à jour la liste sans recharger la page
+  
                 setProjets(projets.filter(p => p.id !== id));
         } catch (error) {
             console.error("Erreur de suppression:", error);
             alert("Erreur lors de la suppression du projet.");
         } finally {
-                  // re-synchroniser pour être sûr (optionnel selon coût)
+                  
                     fetchData();
   }
     };
@@ -111,26 +107,6 @@ const AdminDashboard = () => {
  
                     )}
                   </div>
-
-                {/*
-                    <table style={{ width: '100%', marginTop: '20px' }}>
-                <thead>
-                    <tr><th>Titre</th><th>Actions</th></tr>
-                </thead>
-                <tbody>
-                    {projets.map(projet => (
-                        <tr key={projet.id}>
-                            <td>{projet.title}</td>
-                            <td>
-                                <Link to={`/admin/projets/edit/${projet.id}`}>Modifier</Link> |
-                                <button onClick={() => handleDelete(projet.id)} style={{ marginLeft: '10px' }}>Supprimer</button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-                    */} 
-
             
         </div>
     );
