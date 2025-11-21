@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import publicApi from '../api/publicApi';
 import ProjectForm from './ProjectForm';
 // Importez votre composant ProjectCard ici une fois créé
-// import ProjectCard from '../components/ProjectCard'; 
 import ProjectCard from './ProjectCard';
 
 const HomePage = () => {

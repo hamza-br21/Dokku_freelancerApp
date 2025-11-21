@@ -5,14 +5,14 @@ const AdminLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const { login } = useAuth(); // Utilisation de la fonction login du contexte
+    const { login } = useAuth(); 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         try {
             await login(username, password);
-            // La redirection se fait dans AuthContext.jsx après succès
+        
         } catch (err) {
             setError(err.message || 'Échec de la connexion. Vérifiez vos identifiants.');
         }
